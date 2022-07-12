@@ -83,13 +83,13 @@ The features focused on during cleaning were:
 - **‘protesterdemand1’ - protesterdemand4’**
 
    - Similar to the state response columns, there were 4 protester demand columns meaning that for each protest, there could be up to 4 protester demands recorded. The 7 demand types (in no particular order) were:
-   - political behavior, process
-   - labor wage dispute
-   - police brutality
-   - social restrictions
-   - land farm issue
-   - removal of politician
-   - price increases, tax policy
+      - political behavior, process
+      - labor wage dispute
+      - police brutality
+      - social restrictions
+      - land farm issue
+      - removal of politician
+      - price increases, tax policy
 
    - Unlike the state response columns, the demands were not reduced down to 1 per protest or grouped as they couldn’t be ranked nor were they as related. In order to work with all demands, a column for each demand was created and contained binary values indicating whether or not the demand was made for a given protest.
 
@@ -108,33 +108,27 @@ Because there were 3 grouping options for the state response (2, 3 or 7 classes)
 
 #### Predictive Variables
 
-**‘country’**
+- **‘country’**
+   - There were too many countries to consider the country feature as one that should be One-Hot-Encoded. Many protests were also concentrated in a few countries per region, leaving the majority of countries to have little to hardly any protests that would make it very hard for the model to learn from.
 
-There were too many countries to consider the country feature as one that should be One-Hot-Encoded. Many protests were also concentrated in a few countries per region, leaving the majority of countries to have little to hardly any protests that would make it very hard for the model to learn from.
+- **‘region’**
+   - Europe had the most protests recorded. Africa and Asia both also had a good number of protests recorded, but the number of protests per region after that quickly started to diminish.
 
-**‘region’**
+- **‘year’**
+   - The number of protests fluctuated from 1990-2010 but in general, increased. After 2010, however, they increased dramatically.
 
-Europe had the most protests recorded. Africa and Asia both also had a good number of protests recorded, but the number of protests per region after that quickly started to diminish.
+   - Splitting apart the protests in 2 classes (negative and non-negative) does not offer much insight. The same trends are seen between the 2 classes, though there are more fluctuations with the non-negative class.
 
-**‘year’**
+   - Similar to splitting apart the protests in 2 classes, splitting into 3 classes (negative, neutral and no response) does not offer much insight either.
 
-The number of protests fluctuated from 1990-2010 but in general, increased. After 2010, however, they increased dramatically.
+- **‘protester_violence’**
+   - About 1/3 of the protests experienced protester violence.
 
-Splitting apart the protests in 2 classes (negative and non-negative) does not offer much insight. The same trends are seen between the 2 classes, though there are more fluctuations with the non-negative class.
+- **‘participants_category’**
+   - Based on the participants_category counts, this feature seems like it could be a good predictor. The 100-999 category has the most protests, but the other categories have a decent amount of protests that the model can learn from.
 
-Similar to splitting apart the protests in 2 classes, splitting into 3 classes (negative, neutral and no response) does not offer much insight either.
-
-**‘protester_violence’**
-
-About 1/3 of the protests experienced protester violence.
-
-**‘participants_category’**
-
-Based on the participants_category counts, this feature seems like it could be a good predictor. The 100-999 category has the most protests, but the other categories have a decent amount of protests that the model can learn from.
-
-**‘protester_demands’**
-
-Protests involved the political behavior/process demand more than any other demand. All other demands were seen far less frequently. This may be a difficult predictor to learn from based on these counts.
+- **‘protester_demands’**
+   - Protests involved the political behavior/process demand more than any other demand. All other demands were seen far less frequently. This may be a difficult predictor to learn from based on these counts.
 
 #### Summary
 
@@ -148,21 +142,19 @@ It was difficult to gain meaningful insights and identify strong predictors with
 
 For the NLP portion of the cleaning we decided to only focus on two features: ‘notes’ and ‘stateresponse1’ - ‘stateresponse7’.
 
-**‘notes’**
+- **‘notes’**
+   - This feature describes any information that might have informed a coding decision. Notes also commented on the facts of the protest events, often quoting from main sources.
+   - For the ‘notes’ column the only cleaning that had to be done was removing the 46 null values.
 
-This feature describes any information that might have informed a coding decision. Notes also commented on the facts of the protest events, often quoting from main sources.
-For the ‘notes’ column the only cleaning that had to be done was removing the 46 null values.
-
-**'stateresponse1’ - ‘stateresponse7’**
-
-This feature consists of the 7 different ways a protest event was coded depending on how the government responded. These consisted of:
-- killing
-- shooting
-- beating
-- arrest
-- crowd dispersal
-- accommodation
-- ignore
+- **'stateresponse1’ - ‘stateresponse7’**
+   - This feature consists of the 7 different ways a protest event was coded depending on how the government responded. These consisted of:
+      - killing
+      - shooting
+      - beating
+      - arrest
+      - crowd dispersal
+      - accommodation
+      - ignore
 
 For NLP we chose 2 classes for this feature; negative and non-negative. The non-negative class was: ‘ignore’, ‘accommodation’, and ‘crowd dispersal’. And the negative class was: ‘killing’, ‘shooting’, ‘beating’, and ‘arrest’.
 
