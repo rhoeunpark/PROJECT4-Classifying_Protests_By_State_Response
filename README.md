@@ -2,8 +2,6 @@
 
 <h1 align="center">Classifying Protests by State Response</h1>
 
----
-
 ## Purpose
 
 In attempts to express their objection to a government action, protesters occasionally run into physical conflicts with the state officials who attempt to control the mass mobilization. This project seeks to determine whether it would be possible to distinguish between protests that will lead to a negative or non-negative state response. This goal will be achieved by building a predictive classification model based on various characteristics of the protest movement and open source text collected about the event. 
