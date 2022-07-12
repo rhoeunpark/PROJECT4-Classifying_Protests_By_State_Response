@@ -50,14 +50,12 @@ The original dataset mainly consisted of categorical variables. And although the
 
 The features focused on during cleaning were:
 
-**‘protest’**
+- **‘protest’**
+   - This feature labeled a row either 0 or 1. Based on the data dictionary, a protest is defined as a gathering of 50 or more people to make a demand of the  government. The action must be ‘home grown’ and targeted at the state police or state policy, meaning a protest that targets the policies of another country is not considered. Rows with zeros were dropped.
 
-This feature labeled a row either 0 or 1. Based on the data dictionary, a protest is defined as a gathering of 50 or more people to make a demand of the  government. The action must be ‘home grown’ and targeted at the state police or state policy, meaning a protest that targets the policies of another country is not considered. Rows with zeros were dropped.
 
-
-**‘startday’, ‘startmonth’, ‘startyear’, ‘endday’, ‘endmonth’ and ‘endyear’**
-
-These features were combined to create start date and end date features. These were used to calculate the length of a protest in days. In the end, all features containing date/length information were dropped as the vast majority of protests were recorded as starting and ending the same day.
+- **‘startday’, ‘startmonth’, ‘startyear’, ‘endday’, ‘endmonth’ and ‘endyear’**
+   - These features were combined to create start date and end date features. These were used to calculate the length of a protest in days. In the end, all features containing date/length information were dropped as the vast majority of protests were recorded as starting and ending the same day.
 
 
 **‘participants_category’ and ‘participants’**
