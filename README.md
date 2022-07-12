@@ -91,7 +91,7 @@ The features focused on during cleaning were:
       - removal of politician
       - price increases, tax policy
 
-   - Unlike the state response columns, the demands were not reduced down to 1 per protest or grouped as they couldn’t be ranked nor were they as related. In order to work with all demands, a column for each demand was created and contained binary values indicating whether or not the demand was made for a given protest.
+Unlike the state response columns, the demands were not reduced down to 1 per protest or grouped as they couldn’t be ranked nor were they as related. In order to work with all demands, a column for each demand was created and contained binary values indicating whether or not the demand was made for a given protest.
 
 ### EDA
 
