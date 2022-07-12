@@ -58,41 +58,40 @@ The features focused on during cleaning were:
    - These features were combined to create start date and end date features. These were used to calculate the length of a protest in days. In the end, all features containing date/length information were dropped as the vast majority of protests were recorded as starting and ending the same day.
 
 
-**‘participants_category’ and ‘participants’**
-
-These features contained similar information. The ‘participants_category’ feature described the range of the number of participants. There were 7 categories: (50-99), (100-999), (1000-1999), (2000-4999), (5000-10000), (>10000). The ‘participants’ feature was open-text. In some cases, it contained more detailed information on the number of participants. In other cases, it was more general. Because the vagueness of the ‘participants’ feature for some rows made it impossible to obtain specific counts for all protests, the ‘participants_category’ feature became the better feature to use. Any missing values for that feature made use of its corresponding ‘participants’ value to categorize it in one of the 7 categories.
-
-
-**‘stateresponse1’ - stateresponse7’**
-
-There were 7 state response columns, meaning that for each protest, there could be up to 7 state responses recorded. The 7 response types (in order of severeness), were: 
-- killings
-- shootings
-- beatings
-- arrests
-- crowd dispersal
-- accomodation
-- ignore
-
-For the sake of creating a 1 target variable, each protest was reduced to its most severe response. However, a look at the count for each response showed a severe class imbalance, and so the 7 response types were grouped into 2 and 3 classes. 
-
-When grouped as 2 classes, killings, shootings, beatings and arrests were grouped as the negative responses, and crowd dispersal, accommodation and ignore were grouped as the non-negative responses.  
-
-When grouped as 3 classes, killings, shootings, beatings and arrests were grouped as the negative responses, crowd dispersal and accommodation as the neutral responses and ignore stood alone as no response.
+- **‘participants_category’ and ‘participants’**
+   - These features contained similar information. The ‘participants_category’ feature described the range of the number of participants. There were 7 categories: (50-99), (100-999), (1000-1999), (2000-4999), (5000-10000), (>10000). The ‘participants’ feature was open-text. In some cases, it contained more detailed information on the number of participants. In other cases, it was more general. Because the vagueness of the ‘participants’ feature for some rows made it impossible to obtain specific counts for all protests, the ‘participants_category’ feature became the better feature to use. Any missing values for that feature made use of its corresponding ‘participants’ value to categorize it in one of the 7 categories.
 
 
-**‘protesterdemand1’ - protesterdemand4’**
+- **‘stateresponse1’ - stateresponse7’**
 
-Similar to the state response columns, there were 4 protester demand columns meaning that for each protest, there could be up to 4 protester demands recorded. The 7 demand types (in no particular order) were:
-- political behavior, process
-- labor wage dispute
-- police brutality
-- social restrictions
-- land farm issue
-- removal of politician
-- price increases, tax policy
+   - There were 7 state response columns, meaning that for each protest, there could be up to 7 state responses recorded. The 7 response types (in order of severeness), were: 
+   - killings
+   - shootings
+   - beatings
+   - arrests
+   - crowd dispersal
+   - accomodation
+   - ignore
 
-Unlike the state response columns, the demands were not reduced down to 1 per protest or grouped as they couldn’t be ranked nor were they as related. In order to work with all demands, a column for each demand was created and contained binary values indicating whether or not the demand was made for a given protest.
+   - For the sake of creating a 1 target variable, each protest was reduced to its most severe response. However, a look at the count for each response showed a severe class imbalance, and so the 7 response types were grouped into 2 and 3 classes. 
+
+   - When grouped as 2 classes, killings, shootings, beatings and arrests were grouped as the negative responses, and crowd dispersal, accommodation and ignore were grouped as the non-negative responses.  
+
+   - When grouped as 3 classes, killings, shootings, beatings and arrests were grouped as the negative responses, crowd dispersal and accommodation as the neutral responses and ignore stood alone as no response.
+
+
+- **‘protesterdemand1’ - protesterdemand4’**
+
+   - Similar to the state response columns, there were 4 protester demand columns meaning that for each protest, there could be up to 4 protester demands recorded. The 7 demand types (in no particular order) were:
+   - political behavior, process
+   - labor wage dispute
+   - police brutality
+   - social restrictions
+   - land farm issue
+   - removal of politician
+   - price increases, tax policy
+
+   - Unlike the state response columns, the demands were not reduced down to 1 per protest or grouped as they couldn’t be ranked nor were they as related. In order to work with all demands, a column for each demand was created and contained binary values indicating whether or not the demand was made for a given protest.
 
 ### EDA
 
