@@ -65,13 +65,13 @@ The features focused on during cleaning were:
 - **‘stateresponse1’ - stateresponse7’**
 
    - There were 7 state response columns, meaning that for each protest, there could be up to 7 state responses recorded. The 7 response types (in order of severeness), were: 
-   - killings
-   - shootings
-   - beatings
-   - arrests
-   - crowd dispersal
-   - accomodation
-   - ignore
+      - killings
+      - shootings
+      - beatings
+      - arrests
+      - crowd dispersal
+      - accomodation
+      - ignore
 
    - For the sake of creating a 1 target variable, each protest was reduced to its most severe response. However, a look at the count for each response showed a severe class imbalance, and so the 7 response types were grouped into 2 and 3 classes. 
 
