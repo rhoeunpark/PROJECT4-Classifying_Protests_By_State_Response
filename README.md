@@ -1,4 +1,4 @@
- ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project 5
+ # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project 5
 
 <h1 align="center">Classifying Protests by State Response</h1>
 
@@ -53,15 +53,19 @@ The original dataset mainly consisted of categorical variables. And although the
 The features focused on during cleaning were:
 
 **‘protest’**
+
 This feature labeled a row either 0 or 1. Based on the data dictionary, a protest is defined as a gathering of 50 or more people to make a demand of the government. The action must be ‘home grown’ and targeted at the state police or state policy, meaning a protest that targets the policies of another country is not considered. Rows with zeros were dropped.
 
 **‘startday’, ‘startmonth’, ‘startyear’, ‘endday’, ‘endmonth’ and ‘endyear’**
+
 These features were combined to create start date and end date features. These were used to calculate the length of a protest in days. In the end, all features containing date/length information were dropped as the vast majority of protests were recorded as starting and ending the same day.
 
 **‘participants_category’ and ‘participants’**
+
 These features contained similar information. The ‘participants_category’ feature described the range of the number of participants. There were 7 categories: (50-99), (100-999), (1000-1999), (2000-4999), (5000-10000), (>10000). The ‘participants’ feature was open-text. In some cases, it contained more detailed information on the number of participants. In other cases, it was more general. Because the vagueness of the ‘participants’ feature for some rows made it impossible to obtain specific counts for all protests, the ‘participants_category’ feature became the better feature to use. Any missing values for that feature made use of its corresponding ‘participants’ value to categorize it in one of the 7 categories.
 
 **‘stateresponse1’ - stateresponse7’**
+
 There were 7 state response columns, meaning that for each protest, there could be up to 7 state responses recorded. The 7 response types (in order of severeness), were: 
 - killings
 - shootings
@@ -78,6 +82,7 @@ When grouped as 2 classes, killings, shootings, beatings and arrests were groupe
 When grouped as 3 classes, killings, shootings, beatings and arrests were grouped as the negative responses, crowd dispersal and accommodation as the neutral responses and ignore stood alone as no response.
 
 **‘protesterdemand1’ - protesterdemand4’**
+
 Similar to the state response columns, there were 4 protester demand columns meaning that for each protest, there could be up to 4 protester demands recorded. The 7 demand types (in no particular order) were:
 - political behavior, process
 - labor wage dispute
@@ -105,12 +110,15 @@ Because there were 3 grouping options for the state response (2, 3 or 7 classes)
 #### Predictive Variables
 
 **‘country’**
+
 There were too many countries to consider the country feature as one that should be One-Hot-Encoded. Many protests were also concentrated in a few countries per region, leaving the majority of countries to have little to hardly any protests that would make it very hard for the model to learn from.
 
 **‘region’**
+
 Europe had the most protests recorded. Africa and Asia both also had a good number of protests recorded, but the number of protests per region after that quickly started to diminish.
 
 **‘year’**
+
 The number of protests fluctuated from 1990-2010 but in general, increased. After 2010, however, they increased dramatically.
 
 Splitting apart the protests in 2 classes (negative and non-negative) does not offer much insight. The same trends are seen between the 2 classes, though there are more fluctuations with the non-negative class.
@@ -118,15 +126,19 @@ Splitting apart the protests in 2 classes (negative and non-negative) does not o
 Similar to splitting apart the protests in 2 classes, splitting into 3 classes (negative, neutral and no response) does not offer much insight either.
 
 **‘protester_violence’**
+
 About 1/3 of the protests experienced protester violence.
 
 **‘participants_category’**
+
 Based on the participants_category counts, this feature seems like it could be a good predictor. The 100-999 category has the most protests, but the other categories have a decent amount of protests that the model can learn from.
 
 **‘protester_demands’**
+
 Protests involved the political behavior/process demand more than any other demand. All other demands were seen far less frequently. This may be a difficult predictor to learn from based on these counts.
 
 #### Summary
+
 It was difficult to gain meaningful insights and identify strong predictors with all categorical features. This provides a tip that modeling on this data will be difficult, and it's not likely to find a model that will perform well on it.
 
 ---
@@ -138,10 +150,12 @@ It was difficult to gain meaningful insights and identify strong predictors with
 For the NLP portion of the cleaning we decided to only focus on two features: ‘notes’ and ‘stateresponse1’ - ‘stateresponse7’.
 
 **‘notes’**
+
 This feature describes any information that might have informed a coding decision. Notes also commented on the facts of the protest events, often quoting from main sources.
 For the ‘notes’ column the only cleaning that had to be done was removing the 46 null values.
 
 **'stateresponse1’ - ‘stateresponse7’**
+
 This feature consists of the 7 different ways a protest event was coded depending on how the government responded. These consisted of:
 - killing
 - shooting
