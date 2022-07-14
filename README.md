@@ -14,11 +14,13 @@ In attempts to express their objection to a government action, protesters occasi
 
 [*"Mass Mobilization Protest Data"*](https://dataverse.harvard.edu/file.xhtml?persistentId=doi:10.7910/DVN/HTTWYL/TJJZNG&version=5.0) from Harvard Dataverse
 - The data cover protests from 162 countries between 1990 and March 2020. 
-- 15198 rows, 13 columns
+- 17145 rows, 31 columns
 
 ### Cleaned Dataset:
 
-Feature selection and feature engineering was done for the purpose of our project as follows. 
+- 15198 rows, 13 columns
+
+Feature selection and engineering was done for the purpose of our project as follows.
 
 #### Data Dictionary
 
