@@ -18,9 +18,8 @@ In attempts to express their objection to a government action, protesters occasi
 
 ### Cleaned Dataset:
 
-- 15198 rows, 13 columns
-
 Feature selection and engineering was done for the purpose of our project as follows.
+- 15198 rows, 13 columns
 
 #### Data Dictionary
 
